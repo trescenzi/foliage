@@ -1,0 +1,247 @@
+# vim: ft=colortemplate fdm=marker cc=22,40,58 et ts=2 sw=2
+
+# Information {{{
+# Mandatory
+Full name:     autumn
+Short name:    autumn
+Author:        Thomas Crescenzi <trescenzi@gmail.com>
+# Optional
+Maintainer:    Myself <myself@somewhere.org>
+Website:       https://me.org
+Description:   Template for dark colorscheme
+License:       Public domain
+# Prefix for options: short name is used if this key is not present:
+Option Prefix: dark
+# }}}
+
+# Documentation {{{
+Include: _help.colortemplate
+# }}}
+
+# Common linked groups {{{
+Boolean           -> Constant
+Character         -> Constant
+Conditional       -> Statement
+Debug             -> Special
+Define            -> PreProc
+Delimiter         -> Special
+Exception         -> Statement
+Float             -> Constant
+Function          -> Identifier
+Include           -> PreProc
+Keyword           -> Statement
+Label             -> Statement
+Macro             -> PreProc
+Number            -> Constant
+Operator          -> Statement
+PopupSelected     -> PmenuSel
+PreCondit         -> PreProc
+QuickFixLine      -> Search
+Repeat            -> Statement
+SpecialChar       -> Special
+SpecialComment    -> Special
+StatusLineTerm    -> StatusLine
+StatusLineTermNC  -> StatusLineNC
+StorageClass      -> Type
+String            -> Constant
+Structure         -> Type
+Tag               -> Special
+Typedef           -> Type
+# See `:help lCursor`
+lCursor           -> Cursor
+# }}}
+
+Background: dark
+Neovim: yes
+
+# Color palette {{{
+# Color name         GUI            Base256   Base16 (optional)
+# Base colors
+Color: brown         #2e2c28        ~         Black
+Color: brownorange   #cb6e2d        ~         DarkGrey
+Color: goldenrod     #feb346        ~         DarkYellow 
+Color: white         #ede3c7        ~         Grey
+Color: cream         #cdd3de        ~         LightGrey
+# Normal Colors
+Color: red           #c03b22        ~         LightRed
+color: orange        #d28f33        ~         lightgreen
+Color: yellow        #faba4b        ~         LightYellow
+Color: green         #8b993d        ~         LightGreen
+Color: orangeyellow  #ee5921        ~         LightYellow
+Color: lightorange   #d4b95e        ~         LightYellow
+# Other Colors
+Color: highlighty    #ffeacc        ~         LightYellow
+Color: highlightr    #ffa399        ~         DarkGreen
+Color: highlightg    #cfe6b8        ~         DarkYellow
+Color: deepviolet    #bf3f52        ~         LightCyan
+Color: darkblue      #527aa3        ~         DarkMagenta
+# }}}
+# Terminal colors {{{
+Term colors: brown brownorange goldenrod cream white
+Term colors: red orange yellow green orangeyellow deepviolet
+Term colors: highlighty highlightr highlightg lightorange darkblue
+# }}}
+
+# Default highlight groups {{{
+Variant: gui
+#if get(g:, '@optionprefix_transp_bg', 0) && !has('gui_running')
+Variant: 256 8
+#if get(g:, '@optionprefix_transp_bg', 0)
+Variant: gui 256 8
+    Normal           white                 none
+    Terminal         white                 none
+#else
+    Normal           white                 brown
+    Terminal         white                 brown
+#endif
+
+# Group              Foreground        Background        Attributes
+ColorColumn          fg                brown 
+Conceal              none              none
+Cursor               white             none
+CursorColumn         white             brown             
+CursorLine           white             brown             
+CursorLineNr         white             brown             
+DiffAdd              highlightg        brown             reverse
+DiffChange           highlighty        brown             reverse
+DiffDelete           highlightr        brown             reverse
+DiffText             green             brown             bold, reverse
+Directory            green             cream 
+EndOfBuffer          cream             brown
+ErrorMsg             red               brown             reverse
+FoldColumn           goldenrod         brown
+Folded               goldenrod         brown             italic
+IncSearch            white             brown             t=reverse g=standout
+LineNr               cream             brown
+MatchParen           cream             white 
+ModeMsg              white             brown
+MoreMsg              white             brown
+NonText              white             brown
+Pmenu                white             brown
+PmenuSbar            white             brown
+PmenuSel             white             brown             reverse
+PmenuThumb           white             brown
+Question             white             brown
+Search               white             green 
+SignColumn           cream             brown
+SpecialKey           white             brown
+SpellBad             red               brown            t=underline g=undercurl s=red 
+SpellCap             red               brown            t=underline g=undercurl s=red 
+SpellLocal           red               brown            t=underline g=undercurl s=red 
+SpellRare            red               brown            t=underline g=undercurl s=red 
+StatusLine           brown             cream
+StatusLineNC         brown             cream
+TabLine              brown             cream
+TabLineFill          brown             cream
+TabLineSel           brown             cream
+Title                brown             cream
+VertSplit            cream             cream
+Visual               white             brownorange    reverse 
+VisualNOS            white             brownorange    reverse 
+WarningMsg           red               brown
+WildMenu             white             brown
+# Other conventional group names (see `:help group-name`)
+Comment              cream              none              italic
+Constant             yellow             none
+String               orangeyellow       none
+Character            orangeyellow      none
+Error                red               brown             reverse
+Identifier           orange            none
+Function             green             none
+Ignore               cream             none
+PreProc              brownorange       none
+Special              green             none
+Tag                  green             none
+Statement            red               none
+Keyword              yellow            none
+Operator             deepviolet        none
+Todo                 brown             highlightg
+Type                 green             none
+Label                red               none
+Underlined           yellow            highlightr 
+# TODO hellp
+# See `:help CursorIM`
+CursorIM             none              fg
+# See `:help window-toolbar`
+ToolbarLine          none              brown
+ToolbarButton        white             brown             bold
+# }}}
+
+# Additional highlight groups {{{
+# netrw
+netrwPlain           cream             brown
+netrwDir             green             brown
+##  
+jsThis               red               none
+jsUndefined          orangeyellow none
+jsNull               orangeyellow            none
+jsNan                orangeyellow            none
+jsSuper              orange            none
+jsPrototype          orange            none
+jsFunction           red               none
+jsGlobalNodeObjects  green             none
+jsGlobalObjects      green             none
+jsArrowFunction      red           none              italic
+jsArrowFuncArgs      orange            none
+jsFuncArgs           orange            none
+jsFuncName           orange            none              italic 
+jsFuncBlock          lightorange none
+jsFuncParens         red           none              italic
+jsObjectProp         orangeyellow      none
+jsVariableDef        orange            none
+jsObjectKey          orangeyellow none
+jsParen              lightorange              none
+jsParenIfElse        lightorange              none
+jsParenRepeat        lightorange              none
+jsParenSwitch        lightorange              none
+jsParenCatch         lightorange              none
+jsBracket            lightorange              none
+jsBlockLabel         yellow        none
+jsFunctionKey        red               none
+jsClassDefinition    yellow            none
+jsDot                white             none
+jsDestructuringBlock lightorange  none
+jsSpreadExpression   orangeyellow      none
+jsSpreadOperator     green             none
+jsModuleKeyword      yellow            none
+jsObjectValue        lightorange none
+jsTemplateString     yellow            none
+jsTemplateExpression brownorange        none             italic
+jsTemplateBraces     orange            none
+jsClassMethodType    orange            none
+# jsx
+jsxElement           orange            none
+jsxTag               orange            none
+jsxOpenTag           orange            none
+jsxCloseTag          orange            none
+jsxTagName           orange            none
+jsxOpenPunct         lightorange       none
+jsxClosePunct        lightorange       none
+jsxBraces            cream             none
+jsxAttrib            green             none
+jsxComponentName     orange            none
+jsxExpressionBlock   orangeyellow      none
+# css
+ cssDefinition       green             none
+ cssClassName        orange            none
+ cssIdentifier       orange            none
+ cssTagName           orange           none
+ cssAttributeSelector lightorange      none
+ cssPositioningProp   green            none
+ cssBoxProp           green            none
+ cssUIProp            green            none
+ cssUIProp            green            none
+ cssFlexibleBoxProp   green            none
+ cssMediaProp         green            none
+ cssFontProp          green            none
+ cssTextProp          green            none
+ cssBackgroundProp    green            none
+ cssInteractProp      green            none
+ cssCustomProp        orangeyellow     none
+ cssFunctionName      cream            none
+ cssFunction          cream            none
+# }}}                                  
+                                       
+# B/W variant {{{                     
+Include: _bw.colortemplate
+# }}}
