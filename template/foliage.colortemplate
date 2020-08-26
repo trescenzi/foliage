@@ -2,13 +2,11 @@
 
 # Information {{{
 # Mandatory
-Full name:     autumn
-Short name:    autumn
+Full name:     foliage
+Short name:    foliage
 Author:        Thomas Crescenzi <trescenzi@gmail.com>
 # Optional
-Maintainer:    Myself <myself@somewhere.org>
-Website:       https://me.org
-Description:   Template for dark colorscheme
+Description:   A dark colorscheme based on the collors of fall foliage
 License:       Public domain
 # Prefix for options: short name is used if this key is not present:
 Option Prefix: dark
